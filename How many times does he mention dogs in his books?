@@ -1,0 +1,24 @@
+import os
+import matplotlib.pyplot as plt
+
+path = 'xxx'
+#directory of stephen king txt files
+
+for filename in os.listdir(path):
+    if filename.endswith('.txt'):
+        with open(os.path.join(path, filename), 'r') as f:
+            words = f.read().lower().split()
+            dogwords = ('dog', 'dogs', 'puppie')
+            dog = 0
+            for word in words:
+                if word in dogwords:
+                    dog += 1
+            book = filename.replace('- Stephen King.txt', '')
+            e[book] = dog
+            
+plt.barh(range(len(e)), e.values(), align='center', color = 'green', alpha = 0.7)
+plt.yticks(range(len(e)), e.keys())
+plt.xlabel('Number of Times Dogs are Mentioned')
+plt.ylabel('Book')
+plt.title("Stephen King's Obsession with Dogs")
+plt.tight_layout
