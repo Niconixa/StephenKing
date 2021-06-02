@@ -4,17 +4,22 @@ import matplotlib.pyplot as plt
 path = 'xxx'
 #directory of stephen king txt files
 
+dogwords = ('dog', 'dogs', 'puppie')
+
+def findthewords(text, searchwords):
+    dog = 0
+    for word in words:
+        if word in dogwords:
+            dog += 1
+    book = filename.replace('- Stephen King.txt', '')
+    e[book] = dog
+    return e
+    
 for filename in os.listdir(path):
     if filename.endswith('.txt'):
         with open(os.path.join(path, filename), 'r') as f:
             words = f.read().lower().split()
-            dogwords = ('dog', 'dogs', 'puppie')
-            dog = 0
-            for word in words:
-                if word in dogwords:
-                    dog += 1
-            book = filename.replace('- Stephen King.txt', '')
-            e[book] = dog
+            findthewords(words, dogwords)
             
 fig, ax = plt.subplots(figsize=(9,4))
 
