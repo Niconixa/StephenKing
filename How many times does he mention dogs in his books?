@@ -16,9 +16,9 @@ for filename in os.listdir(path):
             book = filename.replace('- Stephen King.txt', '')
             e[book] = dog
             
-plt.barh(range(len(e)), e.values(), align='center', color = 'green', alpha = 0.7)
-plt.yticks(range(len(e)), e.keys())
-plt.xlabel('Number of Times Dogs are Mentioned')
-plt.ylabel('Book')
-plt.title("Stephen King's Obsession with Dogs")
-plt.tight_layout
+fig, ax = plt.subplots(figsize=(9,4))
+
+ax.barh(y=list(e.keys()), width=e.values());
+ax.set_xlabel('Number of Times Dogs are Mentioned')
+ax.set_ylabel('Book Title')
+ax.set_title('Is Stephen King Obsessed with Dogs?')
